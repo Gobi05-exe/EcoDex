@@ -1,6 +1,9 @@
 # EcoDex
 
-EcoDex is an innovative service designed to address the problems of garbage collection and segregation by automating the task and enabling tracking of waste collection based on location and type. 
+EcoDex is an innovative service designed to address the problems of garbage collection and segregation by automating the task and enabling tracking of waste collection based on location and type.
+
+![Raged2](https://github.com/user-attachments/assets/80a0b8ff-2929-4a72-9ffd-c6024f904a11)
+
 
 ## Features
 EcoDex consists of four main parts:
@@ -83,6 +86,9 @@ EcoDex consists of four main parts:
 2. **Debugging and Dataset Collection:**
    - Allows users to collect new datasets for the MobileNet model.
    - Facilitates debugging and correcting hardware errors.
+  
+  ![Raged1](https://github.com/user-attachments/assets/71bddf7b-b2e3-427a-885a-094e0f9ba990)
+
 
 ---
 
