@@ -13,6 +13,9 @@ EcoDex consists of four main parts:
 3. **Website-Based Monitoring**
 4. **Manual Control for Debugging and Error Correction**
 
+![Raged_Circuit_page-0001](https://github.com/user-attachments/assets/50b592a4-5999-41ff-a6d0-c19dd9225f8d)
+
+
 ---
 
 ## Implementation
@@ -40,6 +43,9 @@ EcoDex consists of four main parts:
   ```
   d = (W * f) / w
   ```
+
+  ![image](https://github.com/user-attachments/assets/4730d42d-f5f9-43c2-82c5-b9e590202065)
+
 
 - **Angle Calculation Formula:**
   
