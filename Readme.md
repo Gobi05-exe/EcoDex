@@ -86,67 +86,11 @@ EcoDex consists of four main parts:
 
 ---
 
-## System Requirements
-
-### Hardware:
-- Camera with adjustable focal length
-- ESP Microcontroller
-- Compatible bot with garbage collection mechanism
-
-### Software:
-- ROS1 Framework
-- Python for ML algorithms
-- Custom-trained MobileNet V2 SSD model
-- ANN model for reward-punishment mechanism
-- Website built with modern web technologies
-
----
-
-## How to Set Up
-
-### 1. Clone the Repository
-```bash
-$ git clone https://github.com/your-repository/EcoDex.git
-$ cd EcoDex
-```
-
-### 2. Install Dependencies
-- Install ROS1 following [ROS Installation Guide](http://wiki.ros.org/ROS/Installation).
-- Install Python dependencies:
-```bash
-$ pip install -r requirements.txt
-```
-
-### 3. Train the ML Model
-- Prepare the dataset and train the MobileNet V2 SSD model:
-```bash
-$ python train_model.py --dataset ./data --epochs 50
-```
-
-- Train the ANN reward-punishment model:
-```bash
-$ python train_ann.py --data ./reward_data.csv
-```
-
-### 4. Launch ROS Nodes
-- Start ROS communication:
-```bash
-$ roslaunch ecodex communication.launch
-```
-
-### 5. Run the Web Server
-- Launch the website for monitoring:
-```bash
-$ python app.py
-```
-
----
-
-## Usage
-
-1. Deploy the bot in the desired area.
-2. Log in to the website to monitor waste collection.
-3. Use manual controls if required for debugging or autonomous failure.
+## Contributors
+- Ayush Acharya
+- Joel Dantis
+- Gobi E
+- Arjun Deveraj
 
 ---
 
@@ -154,13 +98,6 @@ $ python app.py
 - Implement additional classes for waste detection.
 - Upgrade to ROS2 for improved performance.
 - Introduce real-time alert notifications on the website.
-
----
-
-## Contributors
-- [Your Name]
-- [Contributor 2]
-- [Contributor 3]
 
 ---
 
