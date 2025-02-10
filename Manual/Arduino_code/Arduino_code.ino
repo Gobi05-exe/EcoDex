@@ -28,13 +28,13 @@ int cameraPos = 0;
 CytronMD motor1(PWM_DIR, leftMotorPWM, leftMotorDIR );  // PWM 1 = Pin 3, DIR 1 = Pin 4.
 CytronMD motor2(PWM_DIR,rightMotorPWM , rightMotorDIR); // PWM 2 = Pin 9, DIR 2 = Pin 10.
 void straight(){
-  motor1.setSpeed(50);
-  motor2.setSpeed(50);
+  motor1.setSpeed(-10);
+  motor2.setSpeed(-10);
 }
 
 void reverse(){
-  motor1.setSpeed(-100);
-  motor2.setSpeed(-100);
+  motor1.setSpeed(10);
+  motor2.setSpeed(10);
 }
 
 void stop(){
@@ -43,13 +43,13 @@ void stop(){
 }
 
 void left(){
-  motor1.setSpeed(+50);
-  motor2.setSpeed(-50);
+  motor1.setSpeed(+100);
+  motor2.setSpeed(-100);
 }
 
 void right(){
-  motor1.setSpeed(-50);
-  motor2.setSpeed(+50);
+  motor1.setSpeed(-100);
+  motor2.setSpeed(+100);
 }
 
 void setup() {
@@ -94,7 +94,7 @@ void loop() {
 
 
     // For Closing of Claws
-    else if( ch == 'n'){
+    else if( ch == 'm'){
         // Normal Opening Of Claws
       /*for(int i = posclawR , j = posclawL ; i<=180 && j >=90 ; i++ , j--){
         clawL.write(j);
@@ -115,7 +115,7 @@ void loop() {
     }
 
     // For Opening of Claws
-    else if( ch == 'm'){
+    else if( ch == 'n'){
       for(int i = posclawR , j = posclawL ; i>=0 && j <=180 ; i-- , j++  ){
         clawL.write(j);
         clawR.write(i);
@@ -139,19 +139,25 @@ void loop() {
 
 
     // Opening of Lid and Closing
-    else if(ch == 'l'){
+    else if(ch == 'k'){
         if(boolLid==0){
-            analogWrite(LidPinOpen,100);
-            delay(2000);
+            analogWrite(LidPinOpen,255);
+            delay(1000);
+            analogWrite(LidPinOpen, 0);
             boolLid=1;
+           
         }
-        else {
-            analogWrite(LidPinClose ,100);
-            delay(2000);
-            boolLid=0;
-        }
+         
 
     }
+    else if(ch == 'l'){
+      if(boolLid==1){
+        analogWrite(LidPinClose ,255);
+        delay(1000);
+        analogWrite(LidPinClose, 0);
+        boolLid=0;
+    }
+  }
     
     // For making camera face downwards
     else if(ch == 'z'){
