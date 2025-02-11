@@ -65,7 +65,7 @@ def image_callback(ros_image):
                 if pixel_width > 0:
                     distance = (6.5 * 527.5) / pixel_width
                     distance_text = f"{distance:.2f} cm"
-                    delay = distance * 0.065
+                    delay = distance * 0.07
                     move_pub.publish(f"{delay}")
                 else:
                     distance_text = "N/A"
