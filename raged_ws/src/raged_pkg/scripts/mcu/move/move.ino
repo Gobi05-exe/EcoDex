@@ -9,7 +9,12 @@ void loop()
   {
         String str = Serial.readStringUntil('\n');  // Read data until newline
         str.trim();  // Remove extra spaces or newlines
-        char* command = str.c_str(); // convert String to char*
+        
+        // convert String to char*
+        char commandCopy[str.length() + 1];  // Create a writable character array
+        strcpy(commandCopy, str.c_str());    // Copy the string into it
+        char *p = strtok(commandCopy, ",");
+        
         int arr[2];
 
         // converting char* to int array
