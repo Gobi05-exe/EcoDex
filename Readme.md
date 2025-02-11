@@ -73,12 +73,29 @@ EcoDex consists of four main parts:
 ### **3. Website-Based Monitoring**
 - A custom-built website provides user login and sign-in functionalities.
 
+  ![image](https://github.com/user-attachments/assets/e105761f-9daa-4441-9670-39ebdb04bcdf)
+
+
+
 #### Key Features:
 - **Data Storage:**
   - Tracks detected garbage data, categorized into biodegradable and non-biodegradable materials.
+ 
+    ![image](https://github.com/user-attachments/assets/0e3d0383-83e1-4b9c-a5f6-099f3f9d07dd)
+
 - **User-Based Monitoring:**
   - Each user or company can log in to access their bot's data.
+ 
+   ![image](https://github.com/user-attachments/assets/b19f93f5-820b-4117-8bac-47a306777146)
+
+   ![image](https://github.com/user-attachments/assets/40eb2417-4eee-4d7d-8baa-7901d6e6fc24)
+ 
+    
+
   - Displays collected garbage details (e.g., weight in kilograms), bot location, collection points, and current bot status.
+ 
+    ![image](https://github.com/user-attachments/assets/f868b826-f269-4363-941f-f7503855cefa)
+
 
 ---
 
