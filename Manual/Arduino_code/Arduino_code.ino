@@ -138,11 +138,11 @@ void loop() {
     }
 
 
-    // Opening of Lid and Closing
+    // Closing Of Lid (Moving Up) Pin = 27
     else if(ch == 'k'){
         if(boolLid==0){
             analogWrite(LidPinOpen,255);
-            delay(1000);
+            delay(5000);
             analogWrite(LidPinOpen, 0);
             boolLid=1;
            
@@ -150,10 +150,11 @@ void loop() {
          
 
     }
+    // Opening of Lid (Moving Down) Pin = 26
     else if(ch == 'l'){
       if(boolLid==1){
         analogWrite(LidPinClose ,255);
-        delay(1000);
+        delay(5000);
         analogWrite(LidPinClose, 0);
         boolLid=0;
     }
