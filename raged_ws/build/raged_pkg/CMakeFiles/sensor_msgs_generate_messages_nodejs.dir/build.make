@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joel/Documents/raged_ws/src
+CMAKE_SOURCE_DIR = /home/ayush3112/Desktop/EcoDex/raged_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joel/Documents/raged_ws/build
+CMAKE_BINARY_DIR = /home/ayush3112/Desktop/EcoDex/raged_ws/build
 
 # Utility rule file for sensor_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build: sensor_msgs
 .PHONY : raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
 
 raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/joel/Documents/raged_ws/build/raged_pkg && $(CMAKE_COMMAND) -P CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/ayush3112/Desktop/EcoDex/raged_ws/build/raged_pkg && $(CMAKE_COMMAND) -P CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
 
 raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/joel/Documents/raged_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joel/Documents/raged_ws/src /home/joel/Documents/raged_ws/src/raged_pkg /home/joel/Documents/raged_ws/build /home/joel/Documents/raged_ws/build/raged_pkg /home/joel/Documents/raged_ws/build/raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ayush3112/Desktop/EcoDex/raged_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ayush3112/Desktop/EcoDex/raged_ws/src /home/ayush3112/Desktop/EcoDex/raged_ws/src/raged_pkg /home/ayush3112/Desktop/EcoDex/raged_ws/build /home/ayush3112/Desktop/EcoDex/raged_ws/build/raged_pkg /home/ayush3112/Desktop/EcoDex/raged_ws/build/raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : raged_pkg/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
 

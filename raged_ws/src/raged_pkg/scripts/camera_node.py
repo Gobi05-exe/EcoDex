@@ -12,7 +12,7 @@ def main():
     bridge = CvBridge()
 
     # Open the camera (usually /dev/video0 for USB cameras)
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(2)
 
     if not cap.isOpened():
         rospy.loginfo("Camera not found.")

@@ -1,4 +1,4 @@
-prefix=/home/joel/Documents/raged_ws/devel
+prefix=/home/ayush3112/Desktop/EcoDex/raged_ws/devel
 
 Name: raged_pkg
 Description: Description of raged_pkg

@@ -4,18 +4,19 @@ import rospy
 from std_msgs.msg import String
 import json
 import serial
-from time import time
+import time
 
 global run, srl, response, detected
 
 
 def move_callback(delay):
     global run, srl, detected
-    flag = True
+    detected = True
 
     delay = delay.data
 
     info = f'1,{delay}'
+    time.sleep(0.1)
     srl.write((info+'\n').encode()) #append newline charecter
 
     run = False
@@ -23,7 +24,7 @@ def move_callback(delay):
 
 if __name__ == '__main__':
     #INITIALIZE VARIABLES
-    srl = serial.Serial("/dev/ttyUSB0", 9600, timeout=1)
+    srl = serial.Serial("/dev/ttyUSB0", 9600, timeout=0.1)
     run = True
     detected = False
 
@@ -43,18 +44,19 @@ if __name__ == '__main__':
         response = srl.readline().decode('utf-8', errors='ignore').strip()
         arduino_response.publish(response)
         
-        if response == "run":
+        if response == "r":
             run = True
             info = []
         
         elif response == '':
             pass
 
-        elif response != "run":
+        elif response != "r":
             run = False
 
         status_pub.publish(f"{run}")
 
         if not detected:
             info = '2,'
+            time.sleep(0.1)
             srl.write((info+'\n').encode()) #append newline charecter

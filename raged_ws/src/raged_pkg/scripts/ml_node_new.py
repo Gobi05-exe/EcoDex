@@ -6,6 +6,7 @@ from std_msgs.msg import String
 from cv_bridge import CvBridge
 import cv2
 from ultralytics import YOLO
+import time
 
 # Initialize the CvBridge
 bridge = CvBridge()
@@ -13,18 +14,30 @@ bridge = CvBridge()
 # Load the YOLO model
 model = YOLO("yolov8n.pt")  # Use a YOLO model trained on the COCO dataset
 
-# status from arduino (control of model)
+# Initialize the global variables
+run = False
+last_detection_time = 0  # To keep track of the last detection time
+
+# Status callback from Arduino (control of model)
 def status_callback(cam_status):
     global run
-    cam_status = bool(cam_status.data)
+    cam_status = eval(cam_status.data)
     run = cam_status
 
 # Function to process the image and filter for "bottle"
 def image_callback(ros_image):
-    global run
+    global run, last_detection_time
 
     if run:
         try:
+            # Ensure detection happens only once every second
+            current_time = time.time()
+            if current_time - last_detection_time < 1.0:
+                return  # Skip processing if less than 1 second has passed
+
+            # Update the last detection time
+            last_detection_time = current_time
+
             # Convert the ROS image message to an OpenCV image
             frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
 
@@ -72,7 +85,6 @@ def image_callback(ros_image):
                 # Publish detection message
                 on_off.publish("Detected")
 
-
                 # ROS log
                 rospy.loginfo(
                     f"Largest Bottle Detected: x1={x1}, y1={y1}, x2={x2}, y2={y2}, confidence={confidence:.2f}, width={pixel_width}px, distance={distance_text}"
@@ -87,13 +99,13 @@ def image_callback(ros_image):
                 cv2.destroyAllWindows()
         except Exception as e:
             rospy.logerr(f"Error processing image: {e}")
-
+    else:
+        cv2.destroyAllWindows()
+        on_off.publish("OFF")
+        return
 
 
 if __name__ == "__main__":
-    #INITIALIZE VARIABLES
-    run = True # only intial value is set in this program
-
     # ROS NODE INITIALIZE
     rospy.init_node('ml_node', anonymous=True)
 
@@ -105,5 +117,5 @@ if __name__ == "__main__":
     rospy.Subscriber('/camera/image_raw', Image, image_callback)
     rospy.Subscriber('status', String, status_callback)
 
-    #ROS Spin
+    # ROS Spin
     rospy.spin()

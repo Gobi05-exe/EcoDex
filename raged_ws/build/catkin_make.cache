@@ -1,2 +1,2 @@
 raged_pkg
--DCATKIN_DEVEL_PREFIX=/home/joel/Documents/raged_ws/devel -DCMAKE_INSTALL_PREFIX=/home/joel/Documents/raged_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/ayush3112/Desktop/EcoDex/raged_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ayush3112/Desktop/EcoDex/raged_ws/install -G Unix Makefiles

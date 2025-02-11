@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "raged_pkg"
-PROJECT_SPACE_DIR = "/home/joel/Documents/raged_ws/install"
+PROJECT_SPACE_DIR = "/home/ayush3112/Desktop/EcoDex/raged_ws/install"
 PROJECT_VERSION = "0.0.0"

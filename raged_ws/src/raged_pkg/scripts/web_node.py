@@ -17,11 +17,11 @@ def msgCallBack(info):
 if __name__ == '__main__':
     # Replace with your MongoDB URI
     client = MongoClient('mongodb+srv://arjundevraj05:arjun123@cluster0.ev0ma.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')                      
-    db = client["safai"]
+    db = client["test"]
 
     rospy.init_node("web_node", anonymous=True)
 
-    rospy.Subscriber("detected_info", String, queue_size=10)
+    rospy.Subscriber("delay_info", String, queue_size=10)
 
     rospy.spin()
     

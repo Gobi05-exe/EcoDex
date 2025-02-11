@@ -67,14 +67,14 @@ set(raged_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(raged_pkg_SOURCE_PREFIX /home/joel/Documents/raged_ws/src/raged_pkg)
-  set(raged_pkg_DEVEL_PREFIX /home/joel/Documents/raged_ws/devel)
+  set(raged_pkg_SOURCE_PREFIX /home/ayush3112/Desktop/EcoDex/raged_ws/src/raged_pkg)
+  set(raged_pkg_DEVEL_PREFIX /home/ayush3112/Desktop/EcoDex/raged_ws/devel)
   set(raged_pkg_INSTALL_PREFIX "")
   set(raged_pkg_PREFIX ${raged_pkg_DEVEL_PREFIX})
 else()
   set(raged_pkg_SOURCE_PREFIX "")
   set(raged_pkg_DEVEL_PREFIX "")
-  set(raged_pkg_INSTALL_PREFIX /home/joel/Documents/raged_ws/install)
+  set(raged_pkg_INSTALL_PREFIX /home/ayush3112/Desktop/EcoDex/raged_ws/install)
   set(raged_pkg_PREFIX ${raged_pkg_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/joel/Documents/raged_ws/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ayush3112/Desktop/EcoDex/raged_ws/install/lib;/home/ayush3112/image_cv/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -1,5 +1,5 @@
 # generated from catkin/cmake/template/order_packages.context.py.in
-source_root_dir = '/home/joel/Documents/raged_ws/src'
+source_root_dir = '/home/ayush3112/Desktop/EcoDex/raged_ws/src'
 whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/opt/ros/noetic'.split(';') if '/opt/ros/noetic' != '' else []
+underlay_workspaces = '/home/ayush3112/image_cv/devel;/opt/ros/noetic'.split(';') if '/home/ayush3112/image_cv/devel;/opt/ros/noetic' != '' else []
