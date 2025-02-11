@@ -7,6 +7,9 @@ from cv_bridge import CvBridge
 import cv2
 from ultralytics import YOLO
 import time
+import geocoder
+from datetime import datetime
+import json
 
 # Initialize the CvBridge
 bridge = CvBridge()
@@ -28,7 +31,7 @@ def status_callback(cam_status):
 def image_callback(ros_image):
     global run, last_detection_time
 
-    if  run:
+    if run:
         try:
             # Ensure detection happens only once every second
             current_time = time.time()
@@ -46,17 +49,42 @@ def image_callback(ros_image):
 
             # Extract results for "bottle" (class ID: 39)
             bottle_detections = [
-                box for box in results[0].boxes if int(box.cls[0]) == 39
+                box for box in results[0].boxes if int(box.cls[0]) == 39       #temp change
             ]
 
             # Find the largest bounding box based on area
             if bottle_detections:
+                web_info = {}
+                location = geocoder.ip("me") #current location
+                coordinates = [location.lat, location.lng]
+                today = datetime.today()
+                date = str(today.strftime("%d/%m/%y"))
+                day = str(today.strftime("%A"))
+
                 largest_box = max(bottle_detections, key=lambda box: (box.xyxy[0][2] - box.xyxy[0][0]) * (box.xyxy[0][3] - box.xyxy[0][1]))
 
                 # Extract bounding box coordinates
                 x1, y1, x2, y2 = map(int, largest_box.xyxy[0])  
-                confidence = largest_box.conf[0]  
-                class_name = results[0].names[39]  
+                confidence = largest_box.conf[0]
+                
+                class_id = 39 #int(largest_box.cls[0])  # Extracts the first element and converts to int
+                class_name = results[0].names[class_id]      #temp change
+                
+                isBiodegradable = False
+                if class_name in ["PLASTIC", "METAL", "GLASS"]:
+                    isBiodegradable = False
+                else:
+                    isBiodegradable = True
+
+                # Adding the values to the dict
+                web_info['Class'] = str(class_name).upper()
+                web_info['isBiodegradable'] = isBiodegradable
+                web_info['Latitude'] = float(coordinates[0])
+                web_info['Longitude'] = float(coordinates[1])
+                web_info['Date'] = str(date)
+                web_info['Day'] = str(day)
+                web_info = json.dumps(web_info)
+
 
                 # Calculate pixel width
                 pixel_width = x2 - x1
@@ -67,6 +95,7 @@ def image_callback(ros_image):
                     distance_text = f"{distance:.2f} cm"
                     delay = distance * 0.07
                     move_pub.publish(f"{delay}")
+                    web_pub.publish(web_info)
                 else:
                     distance_text = "N/A"
 
@@ -105,13 +134,15 @@ def image_callback(ros_image):
         return
 
 
-if __name__ == "__main__":
+if _name_ == "_main_":
+    
     # ROS NODE INITIALIZE
     rospy.init_node('ml_node', anonymous=True)
 
     # CREATING THE PUBLISHERS
     move_pub = rospy.Publisher('delay_info', String, queue_size=10)
     on_off = rospy.Publisher('onoff', String, queue_size=10)
+    web_pub = rospy.Publisher('detected_info', String, queue_size=10)
 
     # CREATING THE SUBSCRIBERS
     rospy.Subscriber('/camera/image_raw', Image, image_callback)
