@@ -31,11 +31,11 @@ const int resolution = 8;
 
 
 void straight(){
-  ledcWrite(leftMotorPWM, 100);
+  ledcWrite(leftMotorPWM, 30);
   digitalWrite(leftMotorDIR, LOW);
 
-  ledcWrite(rightMotorPWM, 100);
-  digitalWrite(rightMotorDIR, LOW);
+  ledcWrite(rightMotorPWM, 30);
+  digitalWrite(rightMotorDIR, HIGH);
 }
 
 void reverse(){
@@ -154,11 +154,14 @@ void loop()
           {
             // for when object is detected
             lidOpen();
+            delay(3000);
             ClawOpen();
+            delay(2000);
             straight();
-            delay(arr[1]);
+            delay(arr[1]*1000);
             stop();
             ClawClose();
+            delay(2000);
             lidClose();
             delay(2000);  
             Serial.println("r");
