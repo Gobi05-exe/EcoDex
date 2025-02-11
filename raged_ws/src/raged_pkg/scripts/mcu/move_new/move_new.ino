@@ -16,8 +16,8 @@ int binservo = 13;
 int posclawR = 0.00;
 int posclawL = 180.00;
 int camerapin = 15;
-int LidPinOpen = 27 ;
-int LidPinClose = 26 ;
+int LidPinClose = 27 ;
+int LidPinOpen = 26 ;
 
  
 int posClosingclawL = 0;
@@ -28,6 +28,8 @@ int cameraPos = 0;
 const int freq = 30000;
 const int pwmChannel = 4;
 const int resolution = 8;
+
+// int boolLid = 0; // Normally Open
 
 
 void straight(){
@@ -52,7 +54,7 @@ void stop(){
 }
 
 
-void lidOpen(){
+/*void lidOpen(){
   analogWrite(LidPinOpen,255);
   delay(2000);
   analogWrite(LidPinOpen, 0);
@@ -62,7 +64,7 @@ void lidClose(){
   analogWrite(LidPinClose,255);
   delay(2000);
   analogWrite(LidPinClose, 0);
-}
+}*/
 
 void ClawOpen(){
 // Normal Opening Of Claws
@@ -113,6 +115,10 @@ void setup() {
   clawL.write(180); // Set at Closed
   clawR.write(0); // Set at Closed
   bin.write(0); // Set at Biodegradable
+  analogWrite(LidPinClose , 255);
+  delay(5000);
+  analogWrite(LidPinClose, 0);
+  
 
   pinMode(leftMotorPWM, OUTPUT);
   pinMode(leftMotorDIR, OUTPUT);
@@ -153,17 +159,20 @@ void loop()
 
           {
             // for when object is detected
-            lidOpen();
-            delay(3000);
+            analogWrite(LidPinOpen , 255);
+            delay(5000);
+            analogWrite(LidPinOpen, 0);
+            
             ClawOpen();
-            delay(2000);
             straight();
             delay(arr[1]*1000);
             stop();
             ClawClose();
-            delay(2000);
-            lidClose();
-            delay(2000);  
+            
+            analogWrite(LidPinClose , 255);
+            delay(5000);
+            analogWrite(LidPinClose, 0);
+               
             Serial.println("r");
           }
 
