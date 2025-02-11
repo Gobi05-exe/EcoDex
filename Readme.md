@@ -23,8 +23,8 @@ EcoDex consists of four main parts:
 ### **1. Machine Learning Algorithm**
 
 #### Garbage Detection:
-- Utilizes a MobileNet V2 SSD-based architectural model.
-- Custom-trained on a dataset comprising 60 classes.
+- Utilizes an Ultralytics YOLOv8 architectural model.
+- Custom-trained on the TACO dataset comprising 60 classes.
 
 #### Distance and Angle Calculation:
 - Uses camera focal length and horizontal field of view (HFoV) properties.
