@@ -162,7 +162,7 @@ void loop()
             analogWrite(LidPinOpen , 255);
             delay(5000);
             analogWrite(LidPinOpen, 0);
-            
+            bin.write(110);
             ClawOpen();
             straight();
             delay(arr[1]*1000);
@@ -172,6 +172,7 @@ void loop()
             analogWrite(LidPinClose , 255);
             delay(5000);
             analogWrite(LidPinClose, 0);
+	    bin.write(0);
                
             Serial.println("r");
           }
