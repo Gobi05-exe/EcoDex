@@ -32,10 +32,10 @@ const int resolution = 8;
 
 void straight(){
   ledcWrite(leftMotorPWM, 100);
-  digitalWrite(leftMotorDIR, HIGH);
+  digitalWrite(leftMotorDIR, LOW);
 
   ledcWrite(rightMotorPWM, 100);
-  digitalWrite(rightMotorDIR, HIGH);
+  digitalWrite(rightMotorDIR, LOW);
 }
 
 void reverse(){
