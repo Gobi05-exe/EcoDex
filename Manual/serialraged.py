@@ -84,14 +84,14 @@ while True:
             pass
         arduino.write(b'q')
 
-    # For Lid to Close
+    # For Lid to Open (Downward)
     if keyboard.is_pressed('l'):
 
         arduino.write(b'l')
         while keyboard.is_pressed('l'):
             pass
         arduino.write(b'q')
-    # For Lid to Open
+    # For Lid to Close (Upward)
     if keyboard.is_pressed('k'):
 
         arduino.write(b'k')
