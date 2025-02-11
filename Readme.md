@@ -53,8 +53,7 @@ EcoDex consists of four main parts:
   theta = (width_of_frame / Hfov) * (centre_of_screen - centre_of_bounding_box)
   ```
 
-#### Reward-Punishment ANN Model:
-- Implements an artificial neural network (ANN)-based reward-punishment mechanism.
+#### Optimized navigation to target object:
 - Calculates delay for the bot to reach a particular distance, optimizing navigation based on detected objects.
 
 ---
@@ -89,8 +88,7 @@ EcoDex consists of four main parts:
 1. **Autonomous Functionality Backup:**
    - Ensures that if the bot's autonomous system fails, manual controls can take over seamlessly.
 
-2. **Debugging and Dataset Collection:**
-   - Allows users to collect new datasets for the MobileNet model.
+2. **Debugging:**
    - Facilitates debugging and correcting hardware errors.
   
   ![Raged1](https://github.com/user-attachments/assets/71bddf7b-b2e3-427a-885a-094e0f9ba990)
