@@ -28,7 +28,7 @@ def status_callback(cam_status):
 def image_callback(ros_image):
     global run, last_detection_time
 
-    if run:
+    if  run:
         try:
             # Ensure detection happens only once every second
             current_time = time.time()
@@ -65,7 +65,7 @@ def image_callback(ros_image):
                 if pixel_width > 0:
                     distance = (6.5 * 527.5) / pixel_width
                     distance_text = f"{distance:.2f} cm"
-                    delay = distance * 0.8
+                    delay = distance * 0.065
                     move_pub.publish(f"{delay}")
                 else:
                     distance_text = "N/A"
