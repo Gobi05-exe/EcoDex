@@ -1,0 +1,11 @@
+{
+  "/api/users/current/route": "app/api/users/current/route.js",
+  "/api/user/route": "app/api/user/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/save-username/route": "app/api/save-username/route.js",
+  "/(root)/page": "app/(root)/page.js",
+  "/signin/page": "app/signin/page.js",
+  "/(root)/map/page": "app/(root)/map/page.js",
+  "/(root)/reports/page": "app/(root)/reports/page.js",
+  "/(root)/livecam/page": "app/(root)/livecam/page.js"
+}
