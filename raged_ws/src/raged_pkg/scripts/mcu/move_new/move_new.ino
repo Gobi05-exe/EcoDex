@@ -155,12 +155,12 @@ void loop()
             // for when object is detected
             lidOpen();
             ClawOpen();
-            straight()
+            straight();
             delay(arr[1]);
-            stop()
+            stop();
             ClawClose();
-            lidClose()
-            delay(2000)
+            lidClose();
+            delay(2000);  
             Serial.println("r");
           }
 
