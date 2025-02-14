@@ -1,0 +1,6 @@
+<launch>
+<node pkg="raged_pkg" type="camera_node.py" name="camera_node" output="screen"/>
+<node pkg="raged_pkg" type="ml_node_new.py" name="ml_node" output="screen"/>
+<node pkg="raged_pkg" type="move_node_new.py" name="move_node" output="screen"/>
+<node pkg="raged_pkg" type="web_node.py" name="web_node" output="screen"/>
+</launch>
