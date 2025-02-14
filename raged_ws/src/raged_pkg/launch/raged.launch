@@ -4,3 +4,4 @@
 <node pkg="raged_pkg" type="move_node_new.py" name="move_node" output="screen"/>
 <node pkg="raged_pkg" type="web_node.py" name="web_node" output="screen"/>
 </launch>
+
